@@ -1,0 +1,31 @@
+graph TD
+    A["split"]
+    B["data/raw_data/raw.csv"] --> A
+    C["src/data/data_split.py"] --> A
+    A --> D["data/processed_data/X_train.csv"]
+    A --> E["data/processed_data/X_test.csv"]
+    A --> F["data/processed_data/y_train.csv"]
+    A --> G["data/processed_data/y_test.csv"]
+    H["normalize"]
+    D["data/processed_data/X_train.csv"] --> H
+    E["data/processed_data/X_test.csv"] --> H
+    I["src/data/normalize.py"] --> H
+    H --> J["data/processed_data/X_train_scaled.csv"]
+    H --> K["data/processed_data/X_test_scaled.csv"]
+    L["grid_search"]
+    J["data/processed_data/X_train_scaled.csv"] --> L
+    F["data/processed_data/y_train.csv"] --> L
+    M["src/models/grid_search.py"] --> L
+    L --> N["models/best_params.pkl"]
+    O["train"]
+    J["data/processed_data/X_train_scaled.csv"] --> O
+    F["data/processed_data/y_train.csv"] --> O
+    N["models/best_params.pkl"] --> O
+    P["src/models/training.py"] --> O
+    O --> Q["models/gbr_model.pkl"]
+    R["evaluate"]
+    K["data/processed_data/X_test_scaled.csv"] --> R
+    G["data/processed_data/y_test.csv"] --> R
+    Q["models/gbr_model.pkl"] --> R
+    R --> S["data/prediction.csv"]
+    R --> T["metrics/scores.json"]

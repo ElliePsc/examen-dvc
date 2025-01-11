@@ -22,25 +22,6 @@ Vous pouvez télécharger les données à travers le lien suivant : https://data
 
 Mise à jour:
 
-1/
-
-├── examen_dvc          
-│   ├── data       
-│   │   ├── processed_data      # Données transformées (e.g., X_train.csv, y_test.csv)
-│   │   └── raw_data            # Données brutes (e.g., raw.csv)
-│   ├── metrics                 # Contient les fichiers .json avec les métriques du modèle
-│   ├── models                  # Contient les modèles sauvegardés (.pkl ou autres)
-│   ├── src                     # Contient tous les scripts Python
-│   │   ├── data                # Scripts liés aux données
-│   │   │   ├── data_split.py       # Split des données
-│   │   │   ├── normalize.py        # Normalisation
-│   │   ├── models              # Scripts liés aux modèles
-│   │   │   ├── grid_search.py      # Recherche des hyperparamètres
-│   │   │   ├── training.py         # Entraînement du modèle
-│   │   │   ├── evaluate.py         # Évaluation du modèle
-│   └── README.md               # Documentation du projet
-
-à la fin:
 .
 ├── data/
 │   ├── raw_data/
@@ -57,12 +38,12 @@ Mise à jour:
 │   └── best_params.pkl
 ├── src/
 │   ├── data/
-│       ├── data_split.py
-│       └── normalize.py
+│       ├── data_split.py    # Etape 1
+│       └── normalize.py     # Etape 1
 │   ├── models/
-│       ├── grid_search.py
-│       ├── training.py
-│       └── evaluate.py
+│       ├── grid_search.py   # Etape 1
+│       ├── training.py      # Etape 1
+│       └── evaluate.py      # Etape 1
 ├── dvc.yaml
 ├── dvc.lock
 ├── params.yaml
